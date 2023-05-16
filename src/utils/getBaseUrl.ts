@@ -1,4 +1,4 @@
 export const getBaseUrl = () => {
-  const url = "https://";
+  const url = import.meta.env.BASE_URL;
   return url;
 };
