@@ -1,4 +1,3 @@
-import axios from "axios";
 import { axiosInstance } from "../api/axios.instance";
 import { QueryFunctionContext } from "react-query";
 import { weatherApiKey, whoIsApiKey } from "../constants/apiKeys";
