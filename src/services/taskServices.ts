@@ -18,10 +18,10 @@ export const getWeatherDetails = async (): Promise<any> =>
     )
     .then((res) => res.data);
 
-export const getTime = async (): Promise<any> =>
-  await axios
-    .get(`http://worldtimeapi.org/api/timezone/Europe/Istanbul`)
-    .then((res) => res.data);
+// export const getTime = async (): Promise<any> =>
+//   await axios
+//     .get(`http://worldtimeapi.org/api/timezone/Europe/Istanbul`)
+//     .then((res) => res.data);
 
 export const getDangerousAddresses = async (): Promise<any> =>
   await axiosInstance
