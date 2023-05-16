@@ -1,0 +1,39 @@
+//Suggested location to add your overrides so that migration would be easy by just updating the SASS folder in the future
+
+.p-overlaypanel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+div,
+ul,
+.layout-topbar,
+.p-inputtext,
+.p-dropdown,
+.p-button,
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-tbody > tr > td,
+.p-datatable .p-datatable-tbody > tr {
+  transition: background-color 0.75s ease-in-out, border-color 0.75s ease-in-out,
+    outline-color 0.75s ease-in-out;
+}
+
+.layout-sidebar {
+  transition: transform $transitionDuration, left $transitionDuration,
+    background-color 0.75s ease-in-out, border-color 0.75s ease-in-out,
+    outline-color 0.75s ease-in-out;
+}
+
+.p-picklist-filter-container {
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-bottom: 0 none;
+}
+
+.p-picklist-filter-icon {
+  right: 0.75rem;
+  color: #6c757d;
+}
