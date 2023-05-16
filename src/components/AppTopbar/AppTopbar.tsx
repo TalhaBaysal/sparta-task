@@ -16,8 +16,8 @@ const AppTopbar = () => {
         </span>
       </div>
       <div style={{ fontWeight: "bold" }}>
-        <div>Ankara, {weatherDetails?.data[0]?.city_name}</div>
-        <div>{weatherDetails?.data[0]?.temp} Celsius</div>
+        <div>Ankara, {weatherDetails && weatherDetails[0].city_name}</div>
+        <div>{weatherDetails && weatherDetails[0].temp} Celsius</div>
         <div>{moment(time?.datetime).format("MMMM Do YYYY, h:mm:ss a")}</div>
       </div>
     </div>

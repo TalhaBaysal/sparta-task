@@ -4,7 +4,7 @@ import { Dialog } from "primereact/dialog";
 interface NameServerDialogProps {
   visible: boolean;
   onHide: () => void;
-  nameServers: any;
+  nameServers: string[] | undefined;
 }
 
 const NameServerDialog: React.FC<NameServerDialogProps> = ({

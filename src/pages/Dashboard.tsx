@@ -14,12 +14,13 @@ import {
   IpAddressDataTable,
 } from "../components/index";
 import { ipMaxValue, ipMinValue } from "../constants/ipValues";
+import { DataTableValue } from "primereact/datatable";
 
 const Dashboard = () => {
   const toast = useRef<Toast>(null);
 
   const [value, setValue] = useState<string>("");
-  const [ipAddresses, setIpAddresses] = useState<any>([]);
+  const [ipAddresses, setIpAddresses] = useState<DataTableValue[]>([]);
 
   const { foxImages, refetchGetFoxImages } = useGetFoxImagesData();
   const { stoaPs, refetchGetStoaPs } = useGetStoaPsData();
@@ -53,7 +54,6 @@ const Dashboard = () => {
         ipAddress[3] = i.toString();
         const newIP = { ipAddress: ipAddress.join(".") };
         newIpAddresses.push(newIP);
-        console.log(newIP);
       }
     }
     setIpAddresses([...newIpAddresses]);

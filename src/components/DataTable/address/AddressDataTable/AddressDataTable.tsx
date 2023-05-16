@@ -8,9 +8,10 @@ import {
 import { Button } from "primereact/button";
 import { RegInfDialog } from "../../../index";
 import moment from "moment";
+import { IAddressModel } from "../../../../models/index";
 
 const AddressDataTable = () => {
-  const [domain, setDomain] = useState<any>();
+  const [domain, setDomain] = useState<IAddressModel>();
   const [regInfDialog, setRegInfDialog] = useState(false);
 
   const { dangerousAddresses, getDangerousAddressesIsLoading } =
@@ -20,7 +21,7 @@ const AddressDataTable = () => {
     domain?.url
   );
 
-  const openRegInfDialog = async (rowData: any) => {
+  const openRegInfDialog = async (rowData: IAddressModel) => {
     await setDomain({ ...rowData });
     setRegInfDialog(true);
     refetchGetRegInfs();
@@ -44,8 +45,8 @@ const AddressDataTable = () => {
         <Column
           field="date"
           header="Date"
-          body={(rowData: any) => (
-            <>{moment(rowData.date).format("MMMM Do YYYY, h:mm:ss a")}</>
+          body={(rowData: IAddressModel) => (
+            <>{moment(rowData?.date).format("MMMM Do YYYY, h:mm:ss a")}</>
           )}
         />
         <Column

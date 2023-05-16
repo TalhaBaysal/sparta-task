@@ -1,8 +1,8 @@
-import { DataTable } from "primereact/datatable";
+import { DataTable, DataTableValue } from "primereact/datatable";
 import { Column } from "primereact/column";
 
 interface IpAddressDataTableProps {
-  ipAddresses: any;
+  ipAddresses: DataTableValue[];
 }
 
 const IpAddressDataTable: React.FC<IpAddressDataTableProps> = ({

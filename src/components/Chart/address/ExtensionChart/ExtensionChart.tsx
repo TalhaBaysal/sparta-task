@@ -11,20 +11,18 @@ const ExtensionChart = () => {
     useGetDangerousAddressesData();
 
   const updateChartData = async () => {
-    const addressUrl = await dangerousAddresses?.models?.map(
-      ({ url }: any) => url
-    );
+    const addressUrl = await dangerousAddresses?.models?.map(({ url }) => url);
 
-    const addressExtensions = addressUrl?.map((url: any) =>
-      url.split(".").pop()
-    );
+    const addressExtensions = addressUrl?.map((url) => url.split(".").pop());
 
     const urlFrequency = await addressExtensions?.reduce(
-      (acc: any, curr: any) => {
-        if (curr in acc) {
-          acc[curr]++;
-        } else {
-          acc[curr] = 1;
+      (acc: Record<string, number>, curr: string | undefined) => {
+        if (curr) {
+          if (curr in acc) {
+            acc[curr]++;
+          } else {
+            acc[curr] = 1;
+          }
         }
         return acc;
       },
@@ -56,6 +54,7 @@ const ExtensionChart = () => {
 
   useEffect(() => {
     updateChartData();
+    //eslint-disable-next-line
   }, [getDangerousAddressesIsLoading]);
 
   return (

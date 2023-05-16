@@ -12,17 +12,22 @@ const DescriptionChart = () => {
 
   const updateChartData = async () => {
     const addressDesc = await dangerousAddresses?.models?.map(
-      ({ desc }: any) => desc
+      ({ desc }) => desc
     );
 
-    const descFrequency = await addressDesc?.reduce((acc: any, curr: any) => {
-      if (curr in acc) {
-        acc[curr]++;
-      } else {
-        acc[curr] = 1;
-      }
-      return acc;
-    }, {});
+    const descFrequency = await addressDesc?.reduce(
+      (acc: Record<string, number>, curr: string | undefined) => {
+        if (curr) {
+          if (curr in acc) {
+            acc[curr]++;
+          } else {
+            acc[curr] = 1;
+          }
+        }
+        return acc;
+      },
+      {}
+    );
 
     // const documentStyle = getComputedStyle(document.documentElement);
     const data = {
@@ -49,6 +54,7 @@ const DescriptionChart = () => {
 
   useEffect(() => {
     updateChartData();
+    //eslint-disable-next-line
   }, [getDangerousAddressesIsLoading]);
 
   return (

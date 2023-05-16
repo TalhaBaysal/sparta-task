@@ -6,12 +6,13 @@ import { Column } from "primereact/column";
 import { NameServerDialog } from "../../index";
 import moment from "moment";
 import { Button } from "primereact/button";
+import { IRegInf } from "../../../../models";
 
 interface RegInfDialogProps {
   visible: boolean;
   onHide: () => void;
   isLoading: boolean;
-  regInfs: any;
+  regInfs: IRegInf | undefined;
 }
 
 const RegInfDialog: React.FC<RegInfDialogProps> = ({
@@ -39,7 +40,10 @@ const RegInfDialog: React.FC<RegInfDialogProps> = ({
     >
       {!isLoading ? (
         <div className="card">
-          <DataTable value={[regInfs]} tableStyle={{ minWidth: "50rem" }}>
+          <DataTable
+            value={regInfs ? [regInfs] : []}
+            tableStyle={{ minWidth: "50rem" }}
+          >
             <Column field="domain" header="Domain" />
             <Column field="domain_age" header="Domain Age" />
             <Column
@@ -57,7 +61,7 @@ const RegInfDialog: React.FC<RegInfDialogProps> = ({
             <Column
               field="create_date"
               header="Create Date"
-              body={(rowData: any) => (
+              body={(rowData: IRegInf) => (
                 <>
                   {moment(rowData?.create_date).format(
                     "MMMM Do YYYY, h:mm:ss a"
@@ -68,7 +72,7 @@ const RegInfDialog: React.FC<RegInfDialogProps> = ({
             <Column
               field="expire_date"
               header="Expire Date"
-              body={(rowData: any) => (
+              body={(rowData: IRegInf) => (
                 <>
                   {moment(rowData?.expire_date).format(
                     "MMMM Do YYYY, h:mm:ss a"
