@@ -138,7 +138,10 @@ const Dashboard = () => {
               <IpAddressDataTable ipAddresses={ipAddresses} />
             </div>
           </div>
-          <div className="card flex mb-0" style={{ width: "100%" }}>
+          <div
+            className="card flex mb-0"
+            style={{ width: "100%", minWidth: "1210px" }}
+          >
             <AddressDataTable />
             <div className="flex flex-column justify-content-evenly ml-8">
               <DescriptionChart />
